@@ -31,6 +31,35 @@
             margin:10px;
             border-radius: 10px;
         }
+
+        .btn-parent{
+            display: grid;
+            grid-template-columns: repeat(4 , 1fr);
+            row-gap: 10px;
+            margin-top: 30px;
+        }
+
+        .button{
+            background-color: white;
+            width: 85px;
+            height: 50px;
+            margin-left: 7px;
+        }
+
+        .ac-btn-parent{
+            position: relative;
+            width: 385px;
+            height: 45px;
+            margin: 7px;
+
+            background-color: orangered;
+        }
+
+        .ac-btn{
+            text-align: center;
+            padding-top: 15px;
+            -webkit-text-fill-color: white;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +68,33 @@
         <div>
             <input class="display" type="text" >
         </div>
+        <div class="btn-parent">
+
+            <div class="button">
+                <div>1</div>
+            </div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button"></div>
+        </div>
+            <div class="ac-btn-parent">
+                <div class="ac-btn">AC</div>
+            </div>
     </div>
 </section>
 </body>
