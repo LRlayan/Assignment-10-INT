@@ -110,7 +110,53 @@
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
 <script>
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const display = document.querySelector(".display");
+        const buttons = document.querySelectorAll(".button");
 
+        let currentInput = '';
+        let expression = '';
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.textContent;
+
+                if (value >= '0' && value <= '9' || value === '.') {
+                    currentInput += value;
+                    display.value = currentInput;
+
+                } else if (value === 'AC') {
+                    currentInput = '';
+                    expression = '';
+                    display.value = '';
+
+                } else if (value === '+' || value === '-' || value === '*' || value === '/') {
+
+                    if (currentInput !== '') {
+                        if (currentInput === 0){
+                            currentInput = '';
+                        }
+                        expression += currentInput + value;
+                        currentInput = '';
+                    }
+                } else if (value === '=') {
+                    if (currentInput !== '') {
+                        expression += currentInput;
+                        currentInput = '';
+                    }
+
+                    try {
+                        const result = evaluateExpression(expression);
+                        display.value = result;
+                        currentInput = 0;
+                    } catch (error) {
+                        display.value = 'Error';
+                        expression = '';
+                    }
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>
