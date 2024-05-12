@@ -81,6 +81,9 @@
         <div>
             <input class="display" type="text" >
         </div>
+
+        <button class="ac-btn-parent button">←</button>
+
         <div class="btn-parent">
             <button class="button">7</button>
             <button class="button">8</button>
@@ -125,12 +128,18 @@
                     currentInput += value;
                     display.value = currentInput;
 
-                } else if (value === 'AC') {
+                } else if (value === '←'){
+
+                    const removeNumber = currentInput.slice(0, -1);
+                    currentInput = ''
+                    currentInput += removeNumber;
+                    display.value = currentInput;
+                }else if (value === 'AC') {
                     currentInput = '';
                     expression = '';
                     display.value = '';
 
-                } else if (value === '+' || value === '-' || value === '*' || value === '/') {
+                }else if (value === '+' || value === '-' || value === '*' || value === '/') {
 
                     if (currentInput !== '') {
                         if (currentInput === 0){
