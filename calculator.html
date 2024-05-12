@@ -152,6 +152,10 @@
         const display = document.querySelector(".display");
         const buttons = document.querySelectorAll(".button");
 
+        var defaultValue = "00"
+
+        display.value = defaultValue;
+
         let currentInput = '';
         let expression = '';
 
@@ -173,7 +177,7 @@
                 }else if (value === 'AC') {
                     currentInput = '';
                     expression = '';
-                    display.value = '';
+                    display.value = defaultValue;
 
                 }else if (value === '+' || value === '-' || value === '*' || value === '/') {
 
