@@ -57,6 +57,7 @@
             font-weight: bold;
             border: none;
             border-radius: 10px;
+            -webkit-text-fill-color: white;
         }
 
         .ac-btn-parent{
@@ -77,7 +78,6 @@
 
         .button:hover{
             background-color: orange;
-            -webkit-text-fill-color: white;
         }
 
         .chargeParent{
@@ -123,22 +123,22 @@
             <button class="button">7</button>
             <button class="button">8</button>
             <button class="button">9</button>
-            <button class="button">+</button>
+            <button id="plus" class="button">+</button>
 
             <button class="button">4</button>
             <button class="button">5</button>
             <button class="button">6</button>
-            <button class="button">-</button>
+            <button id="minus" class="button">-</button>
 
             <button class="button">1</button>
             <button class="button">2</button>
             <button class="button">3</button>
-            <button class="button">/</button>
+            <button id="slash" class="button">/</button>
 
             <button class="button">0</button>
             <button class="button">.</button>
-            <button class="button">=</button>
-            <button class="button">*</button>
+            <button id="equal" class="button">=</button>
+            <button id="star" class="button">*</button>
         </div>
 
         <button class="ac-btn-parent button">AC</button>
@@ -153,6 +153,7 @@
         const buttons = document.querySelectorAll(".button");
 
         var defaultValue = "00"
+        buttonColor()
 
         display.value = defaultValue;
 
@@ -164,6 +165,7 @@
                 const value = button.textContent;
 
                 if (value >= '0' && value <= '9' || value === '.') {
+                    buttonColor()
                     currentInput += value;
                     display.value = currentInput;
 
@@ -181,6 +183,51 @@
 
                 }else if (value === '+' || value === '-' || value === '*' || value === '/') {
 
+                    if (value === '+'){
+                        $('#plus').css({background:'white'})
+                        $('#plus').css({webkitTextFillColor:'black'})
+
+                        $('#minus').css({background:'orange'})
+                        $('#minus').css({webkitTextFillColor:'white'})
+                        $('#slash').css({background:'orange'})
+                        $('#slash').css({webkitTextFillColor:'white'})
+                        $('#star').css({background:'orange'})
+                        $('#star').css({webkitTextFillColor:'white'})
+                    }
+                    else if (value === '-'){
+                        $('#minus').css({background:'white'})
+                        $('#minus').css({webkitTextFillColor:'black'})
+
+                        $('#plus').css({background:'orange'})
+                        $('#plus').css({webkitTextFillColor:'white'})
+                        $('#slash').css({background:'orange'})
+                        $('#slash').css({webkitTextFillColor:'white'})
+                        $('#star').css({background:'orange'})
+                        $('#star').css({webkitTextFillColor:'white'})
+                    }
+                    else if (value === '/'){
+                        $('#slash').css({background:'white'})
+                        $('#slash').css({webkitTextFillColor:'black'})
+
+                        $('#plus').css({background:'orange'})
+                        $('#plus').css({webkitTextFillColor:'white'})
+                        $('#minus').css({background:'orange'})
+                        $('#minus').css({webkitTextFillColor:'white'})
+                        $('#star').css({background:'orange'})
+                        $('#star').css({webkitTextFillColor:'white'})
+                    }
+                    else if (value === '*'){
+                        $('#star').css({background:'white'})
+                        $('#star').css({webkitTextFillColor:'black'})
+
+                        $('#plus').css({background:'orange'})
+                        $('#plus').css({webkitTextFillColor:'white'})
+                        $('#minus').css({background:'orange'})
+                        $('#minus').css({webkitTextFillColor:'white'})
+                        $('#slash').css({background:'orange'})
+                        $('#slash').css({webkitTextFillColor:'white'})
+                    }
+
                     if (currentInput !== '') {
                         if (currentInput === 0){
                             currentInput = '';
@@ -189,6 +236,7 @@
                         currentInput = '';
                     }
                 } else if (value === '=') {
+                    buttonColor()
                     if (currentInput !== '') {
                         expression += currentInput;
                         currentInput = '';
@@ -237,6 +285,18 @@
             return result;
         }
     });
+
+    function buttonColor(){
+        $('#plus').css({background:'orange'})
+        $('#minus').css({background:'orange'})
+        $('#slash').css({background:'orange'})
+        $('#star').css({background:'orange'})
+
+        $('#plus').css({webkitTextFillColor:'white'})
+        $('#minus').css({webkitTextFillColor:'white'})
+        $('#slash').css({webkitTextFillColor:'white'})
+        $('#star').css({webkitTextFillColor:'white'})
+    }
 </script>
 </body>
 </html>
