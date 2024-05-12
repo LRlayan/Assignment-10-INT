@@ -29,7 +29,7 @@
             font-size: 30px;
 
             margin-left: 5px;
-            margin-top: 60px;
+            margin-top: 30px;
             border-radius: 10px;
             padding-right: 10px;
             padding-left: 10px;
@@ -79,11 +79,31 @@
             -webkit-text-fill-color: white;
         }
 
+        .chargeParent{
+            display: flex;
+            margin-top: 10px;
+            position: relative;
+            left: 228px;
+        }
+
+        .charge{
+            width: 30px;
+            aspect-ratio: 1/1;
+            background-color: #333333;
+            border: 1px solid lightslategray;
+        }
     </style>
 </head>
 <body>
 <section>
     <div class="parent">
+        <div class="chargeParent">
+            <div class="charge"></div>
+            <div class="charge"></div>
+            <div class="charge"></div>
+            <div class="charge"></div>
+        </div>
+
         <div>
             <input class="display" type="text" >
         </div>
